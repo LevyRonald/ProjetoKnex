@@ -19,6 +19,36 @@ class ProdutosControllers{
         return res.status(201).json(produtos)
       }
 
+      async patch(req, res){
+        const {
+            id,
+            nome,
+            bar_code,
+            quantidade
+          } = req.body;
+          const produtos = await this.conexao('produtos').where('id', id).update({
+            nome,
+            bar_code,
+            quantidade
+          }).debug()
+          return res.status(201).json(produtos)
+        }
+
+        async put(req, res){
+          const {
+              id,
+              nome,
+              bar_code,
+              quantidade
+            } = req.body;
+            const produtos = await this.conexao('produtos').where('id', id).update({
+              nome,
+            bar_code,
+            quantidade
+            }).debug()
+            return res.status(201).json(produtos)
+          }
+
       async getAll(req, res) {
         const produtos = await this.conexao('produtos').debug();
         return res.status(200).json(produtos);

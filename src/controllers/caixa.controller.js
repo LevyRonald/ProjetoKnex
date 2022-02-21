@@ -19,6 +19,37 @@ class CaixaController{
           return res.status(201).json(caixa)
         }
 
+        async patch(req, res){
+          const {
+              id,
+              iddoproduto,
+              iddousuario,
+              quantidadeproduto
+            } = req.body;
+            const caixa = await this.conexao('caixa').where('id', id).update({
+              iddoproduto,
+              iddousuario,
+              quantidadeproduto
+            }).debug()
+            return res.status(201).json(caixa)
+          }
+
+          async put(req, res){
+            const {
+                id,
+                iddoproduto,
+                iddousuario,
+                quantidadeproduto
+              } = req.body;
+              const caixa = await this.conexao('caixa').where('id', id).update({
+                iddoproduto,
+                iddousuario,
+                quantidadeproduto
+              }).debug()
+              return res.status(201).json(caixa)
+            }
+  
+
         async getAll(req, res) {
           const caixa = await this.conexao('caixa').debug();
           return res.status(200).json(caixa);

@@ -31,6 +31,14 @@ routes.put('/usuarios', (req, res) => {
   usuariosController.put(req, res)
 });
 
+routes.patch('/usuarios', (req, res) => {
+  usuariosController.patch(req, res)
+});
+
+routes.put('/usuarios', (req, res) => {
+  usuariosController.put(req, res)
+});
+
 routes.post('/produtos', (req, res) => {
   produtosController.create(req, res)
 });
@@ -47,6 +55,14 @@ routes.get('/produtos/one', (req, res) => {
     produtosController.getOne(req, res)
   });
 
+  routes.patch('/produtos', (req, res) => {
+    produtosController.patch(req, res)
+  });
+
+  routes.put('/produtos', (req, res) => {
+    produtosController.put(req, res)
+  });
+
   routes.post('/caixa', (req, res) => {
     caixaController.create(req, res)
   });
@@ -57,6 +73,14 @@ routes.get('/produtos/one', (req, res) => {
   
   routes.delete('/caixa', (req, res) => {
       caixaController.deleteOne(req, res)
+    });
+
+    routes.patch('/caixa', (req, res) => {
+      caixaController.patch(req, res)
+    });
+
+    routes.put('/caixa', (req, res) => {
+      caixaController.put(req, res)
     });
 
 module.exports = routes;

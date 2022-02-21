@@ -19,6 +19,36 @@ class UsuariosControllers {
     return res.status(201).json(usuarios)
   }
 
+  async patch(req, res){
+    const {
+        id,
+        nome,
+        email,
+        senha
+      } = req.body;
+      const usuarios = await this.conexao('usuarios').where('id', id).update({
+        nome,
+        email,
+        senha
+      }).debug()
+      return res.status(201).json(usuarios)
+    }
+
+    async put(req, res){
+      const {
+          id,
+          nome,
+          email,
+          senha
+        } = req.body;
+        const usuarios = await this.conexao('usuarios').where('id', id).update({
+          nome,
+          email,
+          senha
+        }).debug()
+        return res.status(201).json(usuarios)
+      }
+
   async getAll(req, res) {
     const usuarios = await this.conexao('usuarios').debug();
     return res.status(200).json(usuarios);
